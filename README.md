@@ -18,7 +18,7 @@
 ```bash
 g++ -O3 -fopenmp cpu-benchmark-openmp.cpp -o cpu_benchmark
 ```
-### compiling the `mpi` version
+#### Compiling the `mpi` version
 
 ```bash
 mpic++ -O3 cpu-benchmark-mpi.cpp -o mpi_cpu_benchmark

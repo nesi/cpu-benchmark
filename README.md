@@ -14,6 +14,12 @@
 * Make sure to compile with optimizations enabled (`-O3` flag).
 * If you want to test specific instruction sets, you can add flags like -march=znver3 for Zen 3 (Milan) or -march=znver4 for Zen 4 (Genoa).
 
+#### Compiling the `openmp` version
 ```bash
 g++ -O3 -fopenmp cpu-benchmark-openmp.cpp -o cpu_benchmark
+```
+### compiling the `mpi` version
+
+```bash
+mpic++ -O3 cpu-benchmark-mpi.cpp -o mpi_cpu_benchmark
 ```

@@ -13,12 +13,13 @@ data_long <- pivot_longer(data, cols = c(Genoa, Milan), names_to = "City", value
 # Create the line chart
 ggplot(data_long, aes(x = ntasks, y = Time, color = City)) +
   geom_line() +
+  geom_point(size = 3) +
   gghighlight() +
   scale_color_manual(values = c("Genoa" = "blue", "Milan" = "red")) +
-  labs(title = "Average runtime per multiplication (s) for MATRIX_SIZE=2048 & NUM_ITERATIONS=100: Genoa vs Milan",
+  scale_x_continuous(breaks = c(16, 32, 48, 64, 80, 96, 112, 128)) +
+  labs(title = "Average runtime per multiplication (s)\nfor MATRIX_SIZE=2048 & NUM_ITERATIONS=100: Genoa vs Milan",
        x = "Number of Threads  ( OMP_NUM_THREADS)",
        y = "Average time per multiplication: (seconds)") +
   theme_minimal() +
   theme(legend.position = "bottom")
-
 

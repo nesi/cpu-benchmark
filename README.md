@@ -23,3 +23,26 @@ g++ -O3 -fopenmp cpu-benchmark-openmp.cpp -o cpu_benchmark
 ```bash
 mpic++ -O3 cpu-benchmark-mpi.cpp -o mpi_cpu_benchmark
 ```
+
+### `smt-benchmark-openmp`
+
+1. Added system information printing to show thread counts
+2. Created a separate `runBenchmark` function that can test different thread configurations
+3. Added more detailed performance metrics (min/max times)
+4. Improved OpenMP scheduling with `schedule(dynamic)`
+5. Added parallel initialization of matrices
+6. Automatically tests both physical cores only and all logical cores
+
+To use this for SMT testing on EPYC :
+
+* With SMT enabled:
+
+  - The program will automatically detect and use all available threads
+  - It will run tests using both all cores and half the cores
+
+
+* With SMT disabled:
+
+
+  - It will automatically detect the reduced thread count
+  - The results will show performance with physical cores only
